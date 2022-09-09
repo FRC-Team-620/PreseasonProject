@@ -34,6 +34,8 @@ public class MotorCommand extends CommandBase {
     //motorSubsystem.getMotor().setVoltage(forwardBackLeftStick * 12);//Speed using voltage control
 
     System.out.println("Current Speed: " + motorSubsystem.getMotor().get());
+    System.out.println("Current distance in encoder counts: " + motorSubsystem.getMotor().getEncoder().getPosition());
+    System.out.println("Current velocity in rpm: " + motorSubsystem.getMotor().getEncoder().getVelocity());
   }
 
   // Called once the command ends or is interrupted.
