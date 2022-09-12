@@ -62,10 +62,6 @@ public class DriveCommand extends CommandBase {
 
 
     drivetrain.setCurvatureDrive(speed, rotationInput, quickTurn);
-
-    //System.out.println("Current Speed: " + motorSubsystem.getMotor().get());
-    //System.out.println("Current distance in encoder counts: " + motorSubsystem.getMotor().getEncoder().getPosition());
-    //System.out.println("Current velocity in rpm: " + motorSubsystem.getMotor().getEncoder().getVelocity());
   }
 
   // Called once the command ends or is interrupted.
