@@ -21,19 +21,21 @@ public class Drivetrain extends SubsystemBase {
 
   public Drivetrain() {
     setupMotors();
+    setupFollowerMotors();
+    //creates differential drive
+    differentialDrive = new DifferentialDrive(leftFrontMotor, rightFrontMotor);
   }
 
   private void setupMotors() {
-    setupMotor(rightRearMotor);
-    setupMotor(rightFrontMotor);
-    setupMotor(leftRearMotor);
-    setupMotor(leftFrontMotor);
+    rightRearMotor = setupMotor(rightRearMotor);
+    rightFrontMotor = setupMotor(rightFrontMotor);
+    leftRearMotor = setupMotor(leftRearMotor);
+    leftFrontMotor = setupMotor(leftFrontMotor);
   }
 
   public void setupFollowerMotors() {
     rightRearMotor.follow(rightFrontMotor);
     leftRearMotor.follow(leftFrontMotor);
-    differentialDrive = new DifferentialDrive(leftFrontMotor, rightFrontMotor);
   }
 
 
@@ -52,7 +54,7 @@ public class Drivetrain extends SubsystemBase {
     return motor;
   }
 
-  //Used as a method to pass through the infomation from the drive command (Like the speed, rotation, and if we want quick turn or not)
+  //Used as a method to pass through the infomation from the drive command (Like the speed, rotation, and if we want quick turn (Tank drive) or not)
   //into the differentialDrive in this subsystem
   public void setCurvatureDrive(double speed, double rotation, boolean quickTurn) {
     differentialDrive.curvatureDrive(speed, rotation, quickTurn);
