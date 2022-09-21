@@ -30,8 +30,9 @@ public class MotorCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double forwardBackLeftStick = controller.getLeftY();
 
+    double forwardBackLeftStick = controller.getLeftY();
+    //Hi
     motorSubsystem.getMotor().set(forwardBackLeftStick);//Percentage speed
     //motorSubsystem.getMotor().setVoltage(forwardBackLeftStick * 12);//Speed using voltage control
 
