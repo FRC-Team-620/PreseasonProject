@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import frc.robot.Constants;
 import frc.robot.subsystems.MotorSubsystem;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -33,7 +34,7 @@ public class MotorCommand extends CommandBase {
 
     double forwardBackLeftStick = controller.getLeftY();
     //Hi
-    motorSubsystem.getMotor().set(forwardBackLeftStick);//Percentage speed
+    motorSubsystem.getMotor().set(forwardBackLeftStick * Constants.speedFactor);//Percentage speed
     //motorSubsystem.getMotor().setVoltage(forwardBackLeftStick * 12);//Speed using voltage control
 
     System.out.println("Current Speed: " + motorSubsystem.getMotor().get());

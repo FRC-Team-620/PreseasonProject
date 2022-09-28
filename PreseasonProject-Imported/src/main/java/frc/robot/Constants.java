@@ -13,5 +13,5 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    
+    public static final double speedFactor = 0.05;
 }
