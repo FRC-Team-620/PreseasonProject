@@ -42,6 +42,8 @@ public class MotorCommand extends CommandBase {
     System.out.println("Current velocity in rpm: " + motorSubsystem.getMotor().getEncoder().getVelocity());
   }
 
+  // EXAMPLE
+
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
