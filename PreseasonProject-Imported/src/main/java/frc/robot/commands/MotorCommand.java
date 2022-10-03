@@ -25,16 +25,16 @@ public class MotorCommand extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    
+    motorSubsystem.getMotor().set(0.1);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
 
-    double forwardBackLeftStick = controller.getLeftY();
-    //Hi
-    motorSubsystem.getMotor().set(forwardBackLeftStick * Constants.speedFactor);//Percentage speed
+    // double forwardBackLeftStick = controller.getLeftY();
+    // //Hi
+    // motorSubsystem.getMotor().set(forwardBackLeftStick * Constants.speedFactor);//Percentage speed
     //motorSubsystem.getMotor().setVoltage(forwardBackLeftStick * 12);//Speed using voltage control
 
     System.out.println("Current Speed: " + motorSubsystem.getMotor().get());
@@ -45,12 +45,14 @@ public class MotorCommand extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-
+    //Stops the motor
+    this.motorSubsystem.getMotor().set(0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+
+    return controller.getAButton();
   }
 }
