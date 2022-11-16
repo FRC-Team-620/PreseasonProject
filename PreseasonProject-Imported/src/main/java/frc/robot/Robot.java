@@ -42,6 +42,13 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+    robotContainer.getDrivetrain().getLeftFrontMotor().set(1);
+    robotContainer.getDrivetrain().getRightFrontMotor().set(1);
+    robotContainer.getDrivetrain().getLeftRearMotor().set(1);
+    robotContainer.getDrivetrain().getRightRearMotor().set(1);
+    System.out.println("NEWSSS");
+    //robotContainer.getDrivetrain().getLeftFrontMotor().set(1);
+    //robotContainer.getDrivetrain().getLeftFrontMotor().set(1);
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

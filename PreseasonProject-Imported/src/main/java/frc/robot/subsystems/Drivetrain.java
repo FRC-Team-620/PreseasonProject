@@ -8,6 +8,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.CAN;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -37,11 +38,11 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void setupFollowerMotors() {
-    leftRearMotor.follow(leftFrontMotor);
-    rightRearMotor.follow(rightFrontMotor);
+    //leftRearMotor.follow(leftFrontMotor);
+    //rightRearMotor.follow(rightFrontMotor);
 
     rightFrontMotor.setInverted(false);
-    leftFrontMotor.setInverted(true);
+    leftFrontMotor.setInverted(false);
 
     //rightRearMotor.follow(rightFrontMotor);
     // leftRearMotor.follow(leftFrontMotor);
@@ -80,10 +81,31 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    System.out.println("RF: " + rightFrontMotor.get());
+    System.out.println("RB: " + rightRearMotor.get());
+    System.out.println("LF: " + leftFrontMotor.get());
+    System.out.println("LB: " + leftRearMotor.get());
+    System.out.println();
   }
 
   @Override
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
+  }
+
+  public CANSparkMax getRightRearMotor() {
+    return rightRearMotor;
+  }
+
+  public CANSparkMax getRightFrontMotor() {
+    return rightFrontMotor;
+  }
+
+  public CANSparkMax getLeftRearMotor() {
+    return leftRearMotor;
+  }
+  
+  public CANSparkMax getLeftFrontMotor() {
+    return leftFrontMotor;
   }
 }
